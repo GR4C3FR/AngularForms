@@ -1,1 +1,64 @@
-<p>reactive-demo works!</p>
+<div class="glass-card">
+  <h3>Reactive Form</h3>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <label class="label">Username</label>
+    <input class="input-box" type="text" formControlName="username" placeholder="Enter username" required>
+    <div *ngIf="isInvalid('username') && form.get('username')?.errors">
+      <small class="error" *ngIf="form.get('username')?.errors?.['pattern']">Username: 4-12 chars (letters/numbers/_)</small>
+    </div>
+
+    <label class="label">Email</label>
+    <input class="input-box" type="email" formControlName="email" placeholder="Enter email" required>
+    <div *ngIf="isInvalid('email') && form.get('email')?.errors">
+      <small class="error" *ngIf="form.get('email')?.errors?.['email']">Enter a valid email</small>
+    </div>
+
+    <label class="label">Gender</label>
+    <div class="radio-group">
+      <label class="radio-label">
+        <input type="radio" formControlName="gender" value="male" class="radio-input"> <span class="custom-radio"></span> Male
+      </label>
+      <label class="radio-label">
+        <input type="radio" formControlName="gender" value="female" class="radio-input"> <span class="custom-radio"></span> Female
+      </label>
+      <label class="radio-label">
+        <input type="radio" formControlName="gender" value="other" class="radio-input"> <span class="custom-radio"></span> Other
+      </label>
+    </div>
+
+    <label class="label">Password</label>
+    <input class="input-box" type="password" formControlName="password" placeholder="Enter password" required minlength="6">
+    <div *ngIf="isInvalid('password') && form.get('password')?.errors">
+      <small class="error" *ngIf="form.get('password')?.errors?.['pattern']">Password: 8+ with upper, lower, number</small>
+    </div>
+
+    <label class="label">Role</label>
+    <select class="input-box" formControlName="role" required>
+      <option value="" disabled>Select role</option>
+      <option value="admin">Admin</option>
+      <option value="user">User</option>
+      <option value="guest">Guest</option>
+    </select>
+
+    <label class="label">Status</label>
+    <select class="input-box" formControlName="status" required>
+      <option value="" disabled>Select status</option>
+      <option value="permanent">Permanent</option>
+      <option value="probationary">Probationary</option>
+    </select>
+
+    <label class="label">Notes</label>
+    <textarea class="input-box textarea-box" formControlName="notes" placeholder="Enter notes, messages, or comments" rows="3"></textarea>
+
+    <input class="btn" type="submit" value="Submit">
+  </form>
+  <div *ngIf="showPopup" class="plain-popup">
+    <h4>Submitted Info</h4>
+    <div class="info-row"><span class="label">Username:</span> {{ form.value.username }}</div>
+    <div class="info-row"><span class="label">Email:</span> {{ form.value.email }}</div>
+    <div class="info-row"><span class="label">Gender:</span> {{ form.value.gender }}</div>
+    <div class="info-row"><span class="label">Role:</span> {{ form.value.role }}</div>
+    <div class="info-row"><span class="label">Status:</span> {{ form.value.status }}</div>
+    <div class="info-row"><span class="label">Notes:</span> {{ form.value.notes }}</div>
+  </div>
+</div>

@@ -1,0 +1,275 @@
+/* ...existing code... */
+.glass-card {
+  width: 440px;
+  max-width: 95vw;
+  margin: 40px auto 0 auto;
+  padding: 38px 28px 28px 28px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(11px);
+  -webkit-backdrop-filter: blur(11px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 28px 14px rgba(255, 255, 255, 0.14);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+}
+
+.glass-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8),
+    transparent,
+    rgba(255, 255, 255, 0.3)
+  );
+}
+
+::placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+.input-box {
+  width: 94%;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow:
+    0 4px 16px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    inset 0 -1px 0 rgba(255,255,255,0.08),
+    inset 0 0 12px 6px rgba(255,255,255,0.12);
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  color: white;
+}
+.input-box:focus {
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 0 0 2px #ffffff33, 0 4px 16px rgba(255, 255, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 12px 6px rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+select.input-box {
+  width: 100%;
+  color: #fff;
+  padding-right: 36px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: rgba(255,255,255,0.1) url('data:image/svg+xml;utf8,<svg fill="white" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 12px center/20px 20px;
+}
+select.input-box:focus {
+   color: #000;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px 0;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow:
+    0 4px 16px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    inset 0 -1px 0 rgba(255,255,255,0.08),
+    inset 0 0 12px 6px rgba(255,255,255,0.12);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s, box-shadow 0.2s;
+  margin-top: 8px;
+}
+.btn:focus {
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 0 0 2px #ffffff33, 0 4px 16px rgba(255,255,255,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    inset 0 -1px 0 rgba(255,255,255,0.08),
+    inset 0 0 12px 6px rgba(255,255,255,0.12);
+}
+.btn:hover:not(:disabled) {
+  background: rgba(255,255,255,0.28);
+  color: #ffffff;
+}
+.btn:disabled {
+  width: 100%;
+  padding: 14px 0;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow:
+    0 4px 16px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    inset 0 -1px 0 rgba(255,255,255,0.08),
+    inset 0 0 12px 6px rgba(255,255,255,0.12);
+  color: rgba(255, 255, 255, 0.473);
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: not-allowed;
+  transition: background 0.2s, border 0.2s, box-shadow 0.2s;
+  margin-top: 8px;
+}
+.label {
+  color: #fff;
+}
+h3 {
+  margin-top: -5px;
+  color: white;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+  margin: 6px 0 12px 0;
+}
+.radio-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 0.98rem;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+.radio-input {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 0;
+}
+.custom-radio {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    inset 0 -1px 0 rgba(255,255,255,0.08);
+  margin-right: 6px;
+  display: inline-block;
+  vertical-align: middle;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.radio-input:checked + .custom-radio {
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 2px #ffffff33, 0 2px 8px rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.18);
+}
+.radio-label:hover .custom-radio {
+  border: 2px solid #fff;
+}
+
+.textarea-box {
+  min-height: 60px;
+  resize: vertical;
+  font-family: inherit;
+  /* Inherit all glass morphism styles from .input-box */
+}
+
+.popup-glass {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 320px;
+  max-width: 90vw;
+  z-index: 1000;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.5),
+    inset 0 -1px 0 rgba(255,255,255,0.1),
+    inset 0 0 28px 14px rgba(255,255,255,0.14);
+  color: #fff;
+  padding: 22px 24px 18px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: fadeInPop 0.3s;
+}
+@keyframes fadeInPop {
+  from { opacity: 0; transform: translateX(-50%) scale(0.95); }
+  to { opacity: 1; transform: translateX(-50%) scale(1); }
+}
+.popup-glass h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.plain-popup {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 320px;
+  max-width: 90vw;
+  z-index: 1000;
+  background: #222;
+  border-radius: 10px;
+  border: 1px solid #444;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  color: #fff;
+  padding: 22px 24px 18px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: fadeInPop 0.3s;
+}
+.plain-popup h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  color: #fff;
+}
+.error {
+  color: red;
+}
