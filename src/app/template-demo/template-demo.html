@@ -1,0 +1,59 @@
+<div class="glass-card">
+  <h3>Template-Driven</h3>
+  <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+    <label class="label">Username</label>
+    <input class="input-box" type="text" name="username" [(ngModel)]="username" placeholder="Enter username" required>
+
+    <label class="label">Email</label>
+    <input class="input-box" type="email" name="email" [(ngModel)]="email" placeholder="Enter email" required email>
+
+    <label class="label">Gender</label>
+    <div class="radio-group">
+      <label class="radio-label">
+        <input type="radio" name="gender" [(ngModel)]="gender" value="male" required class="radio-input">
+        <span class="custom-radio"></span> Male
+      </label>
+      <label class="radio-label">
+        <input type="radio" name="gender" [(ngModel)]="gender" value="female" required class="radio-input">
+        <span class="custom-radio"></span> Female
+      </label>
+      <label class="radio-label">
+        <input type="radio" name="gender" [(ngModel)]="gender" value="other" required class="radio-input">
+        <span class="custom-radio"></span> Other
+      </label>
+    </div>
+
+    <label class="label">Password</label>
+    <input class="input-box" type="password" name="password" [(ngModel)]="password" placeholder="Enter password" required minlength="6">
+
+    <label class="label">Role</label>
+    <select class="input-box" name="role" [(ngModel)]="role" required>
+      <option value="" disabled selected>Select role</option>
+      <option value="admin">Admin</option>
+      <option value="user">User</option>
+      <option value="guest">Guest</option>
+    </select>
+
+    <label class="label">Status</label>
+    <select class="input-box" name="status" [(ngModel)]="status" required>
+      <option value="" disabled selected>Select status</option>
+      <option value="permanent">Permanent</option>
+      <option value="probationary">Probationary</option>
+    </select>
+
+    <label class="label">Notes</label>
+    <textarea class="input-box textarea-box" name="notes" [(ngModel)]="notes" placeholder="Enter notes, messages, or comments" rows="3"></textarea>
+
+    <input class="btn" type="submit" value="Submit" [disabled]="!myForm.form.valid">
+  </form>
+  <div *ngIf="showPopup" class="plain-popup">
+    <h4>Submitted Info</h4>
+    <div class="info-row"><span class="label">Username:</span> {{ username }}</div>
+    <div class="info-row"><span class="label">Email:</span> {{ email }}</div>
+    <div class="info-row"><span class="label">Gender:</span> {{ gender }}</div>
+    <div class="info-row"><span class="label">Role:</span> {{ role }}</div>
+    <div class="info-row"><span class="label">Status:</span> {{ status }}</div>
+    <div class="info-row"><span class="label">Notes:</span> {{ notes }}</div>
+  </div>
+</div>
+
